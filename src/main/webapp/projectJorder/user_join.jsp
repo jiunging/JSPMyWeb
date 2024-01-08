@@ -17,9 +17,7 @@
 </head>
 <body>
 
-
 <!-- 	<img src = "../img\um.png"> -->
-
 
 	<div align="center" class="div_center">
 		<h3>JORDER 회원가입</h3>
@@ -41,7 +39,7 @@
 				<tr>
 					<td>이름</td>
 					<td>
-						<input type="name" name="name" required>
+						<input type="text" name="name" required>
 					</td>
 				</tr>
 				<tr>

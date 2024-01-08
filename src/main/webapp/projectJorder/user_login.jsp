@@ -28,8 +28,13 @@
 						<input type="text" name="id" required pattern="[A-Za-z0-9]{5,}">
 					</td>
 				</tr>
-			
+				
+
 			</table>
+			
+				<input type="submit" value="로그인" required pattern="[A-Za-z0-9]{5,}">
+				<input type="reset" value="취소" required pattern="[A-Za-z0-9]{5,}">
+			
 	
 		</form>
 	
