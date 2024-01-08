@@ -98,7 +98,7 @@ public class UserController extends HttpServlet {
 			// 여기에서 회원에 대한 데이터를 가지고 화면으로 나갈거임
 			/*
 			 * 1. DAO에서는 id기준으로 회원정보를 조회해서 UserVO 저장
-			 * 2. service영역에서는 리턴ㄴ해서 컨트롤러까지 회원저옵를 가지고 나옴
+			 * 2. service영역에서는 리턴ㄴ해서 컨트롤러까지 회원정보를 가지고 나옴
 			 * 3. 컨트롤러에서는 vo를 request에 저장. request.setAttribute 사용
 			 * 4. 화면에서 EL태그를 사용해서 value속성에 찍어주면 됨
 			 */
@@ -135,7 +135,38 @@ public class UserController extends HttpServlet {
 			}
 			
 			
+		} else if(path.equals("/user/delete.user")) { // 탈퇴화면
+			request.getRequestDispatcher("user_delete.jsp").forward(request, response);
+			
+		} else if(path.equals("/user/deleteForm.user")) { // 회원탈퇴요청
+			/*
+			 * 1. service영역의 delete메서드로 연결
+			 * 2. service에서는 먼저 login메서드를 이용해서 회원의 정보를 조회해서 가지고 나옴
+			 * 3. 회원이 있다는 것은, 비밀번호가 일치한다는 의미
+			 * 4. delete메서드를 호출시켜서 회원정보를 삭제하고, 세션도 삭제하고, 홈화면으로 리다이렉트
+			 * 5. 비밀번호가 일치하지 않아서 실패한 경우에는, delete.jsp화면으로 메세지를 보내주세요
+			 */
+			
+			int result = service.delete(request, response);
+			
+			if(result == 1) { // 삭제 성공
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				//아래 나오는건 자바스크립트 문법이긴 함
+				out.println("<script>");
+				out.println("alert('정상적으로 탈퇴되었습니다');");
+				out.println("location.href='/JSPMyWeb';");
+				out.println("</script>");
+				
+			} else { // 삭제 실패
+				request.setAttribute("msg", "비밀번호를 확인하세요");
+				request.getRequestDispatcher("user_delete.jsp").forward(request, response);
+				
+			}
+			
+			
 		}
+		
 		
 		
 		

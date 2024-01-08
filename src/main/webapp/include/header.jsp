@@ -82,7 +82,7 @@
                         <a href="${pageContext.request.contextPath }/member/member.jsp">Member</a>
                     </li>
                     <li>
-                        <a href="">BOARD</a>
+                        <a href="${pageContext.request.contextPath }/board/list.board">BOARD</a>
                     </li>
                     
                     <c:choose>

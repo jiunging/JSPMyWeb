@@ -11,6 +11,7 @@ public interface UserService {
 	public UserVO login(HttpServletRequest request, HttpServletResponse response);
 	public UserVO getUserInfo(HttpServletRequest request, HttpServletResponse response);
 	public int update(HttpServletRequest request, HttpServletResponse response);
+	public int delete(HttpServletRequest request, HttpServletResponse response);
 	
 
 }

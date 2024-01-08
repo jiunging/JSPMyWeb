@@ -92,6 +92,42 @@ public class UserServiceImpl implements UserService{
 		
 		return result;
 	}
+
+	@Override
+	public int delete(HttpServletRequest request, HttpServletResponse response) {
+		
+		// 이미 로그인이 돼있는 상황이니, 세션에서 아이디를 얻을 수 있음
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("user_id");
+		String pw = request.getParameter("pw");
+		
+		UserVO vo = dao.login(id, pw);
+		
+		if(vo != null) { // 비밀번호가 일치, 왜? 로그인을 성공한 거니까
+			// delete 작업
+			dao.delete(id);
+			session.invalidate();
+			return 1;
+			
+		} else { // 비밀번호가 일치하지 않음
+			return 0;
+			
+		}
+		
+		
+	}
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

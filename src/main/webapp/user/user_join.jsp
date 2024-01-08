@@ -74,7 +74,6 @@
 	
 	<script>
 		function joinConfirm() {
-
 			//document문서를 뜻함
 			//name이 reg_form 안에, name이 id 인 값
 			if(document.reg_form.id.value == 0) {
