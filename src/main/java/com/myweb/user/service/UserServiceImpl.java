@@ -111,10 +111,7 @@ public class UserServiceImpl implements UserService{
 			
 		} else { // 비밀번호가 일치하지 않음
 			return 0;
-			
 		}
-		
-		
 	}
 	
 	

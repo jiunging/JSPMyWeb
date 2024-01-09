@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>    
 
 <%@ include file="../include/header.jsp" %>
 
@@ -21,13 +22,17 @@
 			</thead>
 
 			<tbody>
+			
+				<c:forEach var="vo" items="${list }">
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>${vo.bno }</td>
+					<td>${vo.writer }</td>
+					<td><a href="content.board?bno=${vo.bno }">${vo.title }</a></td>
+					<td><fmt:formatDate value="${vo.regdate }" pattern="yyyy년 MM월 dd일 HH시 mm분 ss초"/> </td>
+					<td>${vo.hit }</td>
 				</tr>
+				</c:forEach>
+				
 			</tbody>
 			
 			<tbody>
