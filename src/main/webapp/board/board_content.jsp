@@ -7,7 +7,6 @@
 
 <div align="center" class="div_center">
 
-
 	<h3>게시글 내용 보기</h3>
 	<hr>
 	<table border="1" width="500">
@@ -39,7 +38,7 @@
 			<td colspan="4" align="center">
 				<input type="button" value="목록" onclick="location.href='list.board'; ">&nbsp;&nbsp;
 				<input type="button" value="수정" onclick="location.href='modify.board?bno=${vo.bno}';">&nbsp;&nbsp;
-				<input type="button" value="삭제" onclick="location.href=''">&nbsp;&nbsp;
+				<input type="button" value="삭제" onclick="location.href='delete.board?bno=${vo.bno}';">&nbsp;&nbsp;
 			</td>
 		</tr>
 	</table>

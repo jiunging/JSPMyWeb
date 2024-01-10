@@ -111,9 +111,9 @@ public class UserController extends HttpServlet {
 			// 값 설정, 이름:vo에다가 vo를 담는다
 			request.setAttribute("vo", vo);
 			
-			
 			// 이동한다
 			request.getRequestDispatcher("user_update.jsp").forward(request, response);
+			
 		} else if(path.equals("/user/updateForm.user")) { // 회원정보수정
 			
 			// 0이면 실패, 1이면 성공

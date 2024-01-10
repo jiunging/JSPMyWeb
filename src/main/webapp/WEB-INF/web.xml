@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
+  <display-name>JSPMyWeb</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  
+  <!-- 필터를 web.xml에 걸어서 필터체니이 -->
+  <!-- 등록된 필터 순서대로 동작을 하게 됨 -->
+  <filter>
+  	<filter-name>chain1</filter-name>
+	<filter-class>com.myweb.util.filter.ChainFilter01</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>chain1</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+    <filter>
+  	<filter-name>chain2</filter-name>
+	<filter-class>com.myweb.util.filter.ChainFilter02</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>chain2</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</web-app>

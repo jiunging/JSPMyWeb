@@ -59,6 +59,9 @@ public class BoardController extends HttpServlet {
 			
 			
 		} else if(path.equals("/board/write.board")) { //글쓰기화면
+			// 회원이 아니면
+			
+			
 			request.getRequestDispatcher("board_write.jsp").forward(request, response);
 			
 		} else if(path.equals("/board/registForm.board")) { // 글 등록
@@ -67,6 +70,8 @@ public class BoardController extends HttpServlet {
 			response.sendRedirect("list.board");
 
 		} else if(path.equals("/board/content.board")) {
+			
+			service.hitUpdate(request, response); // 조회수
 			
 			BoardVO vo = service.getContent(request, response);
 			// 값을 데리고 나감
@@ -101,9 +106,20 @@ public class BoardController extends HttpServlet {
 				 response.sendRedirect("content.board?bno=" + request.getParameter("bno")); // bno값 넘겨줌
 			} else { // 실패
 				response.sendRedirect("modify.board?bno=" + request.getParameter("bno")); 
-			}
+			} 
 			
+		} else if(path.equals("/board/delete.board")) {
 			
+			service.delete(request, response);
+			response.sendRedirect("list.board"); // 목록으로 이동
 		}
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 }
